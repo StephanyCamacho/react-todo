@@ -47,16 +47,17 @@ class App extends Component {
     return (
       <div className="container" >
         <div className="header">To Do App</div>
-        {notes}
 
-        <div className="btn" onClick={this.addNote.bind(this)}>+</div>
-        <input type="text"
+        <input type="text" placeholder="Type here..."
           ref={((input) => { this.textInput = input })}
           className="textInput"
           value={this.state.noteText}
           onChange={noteText => this.updateNoteText(noteText)}
           onKeyPress={this.handleKeyPress.bind(this)}
         />
+        <div className="btn" onClick={this.addNote.bind(this)}>+</div>
+
+        {notes}
       </div>
     );
   }
