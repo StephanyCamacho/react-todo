@@ -11,14 +11,22 @@ class App extends Component {
       notes: [],
     }
   }
+  setNotes() {
+    localStorage.setItem(this.state.noteText, true);
+  }
+
+  getNotes(){
+    let toDo = localStorage.getItem(this.state.noteText);
+    toDo = JSON.parse(toDo);
+    console.log('Data')
+  }
 
   updateNoteText(noteText) {
     this.setState({ noteText: noteText.target.value })
   }
 
   addNote() {
-    if (this.state.noteText === '') { return }
-
+    // if (this.state.noteText === '') { return }
     let notesArr = this.state.notes;
     notesArr.push(this.state.noteText);
     this.setState({ noteText: '' });
@@ -55,7 +63,7 @@ class App extends Component {
           onChange={noteText => this.updateNoteText(noteText)}
           onKeyPress={this.handleKeyPress.bind(this)}
         />
-        <div className="btn" onClick={this.addNote.bind(this)}>+</div>
+        <div className="btn" onClick={this.addNote.bind(this) && this.setNotes.bind(this)}>+</div>
 
         {notes}
       </div>

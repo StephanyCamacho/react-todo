@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Note extends Component {
-
+  
   render() {
     return (
       <div className="note" onClick={this.props.deleteMethod}>
@@ -9,6 +9,7 @@ class Note extends Component {
       </div>
     );
   }
+ 
 }
 
 export default Note;
